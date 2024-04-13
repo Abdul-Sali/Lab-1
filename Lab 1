@@ -1,0 +1,121 @@
+// Base class Vehicle
+class Vehicle {
+    String brand;
+    String model;
+    int year;
+
+    public Vehicle(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    public void drive() {
+        System.out.println(brand + " " + model + " is driving.");
+    }
+
+    public void stop() {
+        System.out.println(brand + " " + model + " has stopped.");
+    }
+}
+
+// Motorcycle subclass
+class Motorcycle extends Vehicle {
+    String engineType;
+    int topSpeed;
+
+    public Motorcycle(String brand, String model, int year, String engineType, int topSpeed) {
+        super(brand, model, year);
+        this.engineType = engineType;
+        this.topSpeed = topSpeed;
+    }
+
+    public void wheelie() {
+        System.out.println(brand + " " + model + " is performing a wheelie.");
+    }
+
+    public void revEngine() {
+        System.out.println(brand + " " + model + " is revving its " + engineType + " engine.");
+    }
+}
+
+// Bus subclass
+class Bus extends Vehicle {
+    int seatingCapacity;
+    boolean isDoubleDecker;
+
+    public Bus(String brand, String model, int year, int seatingCapacity, boolean isDoubleDecker) {
+        super(brand, model, year);
+        this.seatingCapacity = seatingCapacity;
+        this.isDoubleDecker = isDoubleDecker;
+    }
+
+    public void openDoors() {
+        System.out.println(brand + " " + model + " is opening its doors.");
+    }
+
+    public void announceStops() {
+        System.out.println(brand + " " + model + " is announcing the next stop.");
+    }
+}
+
+// Trailer subclass
+class Trailer extends Vehicle {
+    double maxLoadCapacity;
+    boolean hasRamp;
+
+    public Trailer(String brand, String model, int year, double maxLoadCapacity, boolean hasRamp) {
+        super(brand, model, year);
+        this.maxLoadCapacity = maxLoadCapacity;
+        this.hasRamp = hasRamp;
+    }
+
+    public void attachTruck() {
+        System.out.println(brand + " " + model + " is attached to a truck.");
+    }
+
+    public void loadCargo() {
+        System.out.println(brand + " " + model + " is loading cargo.");
+    }
+}
+
+// Boat subclass
+class Boat extends Vehicle {
+    String propulsionType;
+    int passengerCapacity;
+
+    public Boat(String brand, String model, int year, String propulsionType, int passengerCapacity) {
+        super(brand, model, year);
+        this.propulsionType = propulsionType;
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    public void startEngine() {
+        System.out.println(brand + " " + model + "'s " + propulsionType + " engine is starting.");
+    }
+
+    public void sail() {
+        System.out.println(brand + " " + model + " is sailing on the water.");
+    }
+}
+
+// Main class to demonstrate usage
+public class Main {
+    public static void main(String[] args) {
+        Motorcycle motorcycle = new Motorcycle("Honda", "CBR1000RR", 2023, "inline-four", 300);
+        motorcycle.drive();
+        motorcycle.wheelie();
+
+        Bus bus = new Bus("Volvo", "XC60", 2022, 50, true);
+        bus.drive();
+        bus.openDoors();
+
+        Trailer trailer = new Trailer("Utility", "Flatbed", 2024, 10.5, true);
+        trailer.attachTruck();
+        trailer.loadCargo();
+
+        Boat boat = new Boat("Yamaha", "WaveRunner", 2021, "jet", 4);
+        boat.startEngine();
+        boat.sail();
+    }
+}
